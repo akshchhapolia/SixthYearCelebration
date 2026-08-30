@@ -1,6 +1,6 @@
 # Song & Verse
 
-A frontend-only ticket booking site for a private singing and poetry evening on 1 September. No backend — the reservation is saved in the browser.
+A frontend-only ticket booking site for a private singing and poetry hour on 1 September. No backend — the reservation is saved in the browser.
 
 ## Start locally
 
