@@ -49,18 +49,22 @@ export default function App() {
     setScreen("ticket");
   }
 
+  function goHome() {
+    setScreen("home");
+  }
+
   function rebook() {
     clearTicket();
     setTicket(null);
     setSlotId("");
-    setScreen("book");
-    setStep("slots");
+    setStep("details");
+    setScreen("home");
   }
 
   return (
     <div className="app">
       <div className="wash" aria-hidden="true" />
-      <Header onLogo={() => (ticket ? setScreen("ticket") : setScreen("home"))} />
+      <Header onLogo={goHome} />
 
       <main className="shell">
         {screen === "home" && <Home onBook={startBooking} />}
@@ -72,6 +76,7 @@ export default function App() {
             slotId={slotId}
             setSlotId={setSlotId}
             onIssue={issueTicket}
+            onHome={goHome}
           />
         )}
         {screen === "ticket" && ticket && (
@@ -91,7 +96,7 @@ export default function App() {
 function Header({ onLogo }) {
   return (
     <header className="header">
-      <button className="brand" type="button" onClick={onLogo}>
+      <button className="brand" type="button" onClick={onLogo} aria-label="Back to home">
         <span className="mark">S</span>
         <span className="brand-text">
           <strong>Song &amp; Verse</strong>
@@ -178,6 +183,7 @@ function Booking({
   slotId,
   setSlotId,
   onIssue,
+  onHome,
 }) {
   const index = STEPS.findIndex((item) => item.id === step);
 
@@ -216,14 +222,23 @@ function Booking({
               <p>A private recital.</p>
             </div>
           </div>
-          <button
-            className="btn btn-primary"
-            type="button"
-            onClick={() => setStep("slots")}
-          >
-            Choose a time
-            <span aria-hidden="true">→</span>
-          </button>
+          <div className="row">
+            <button
+              className="btn btn-ghost"
+              type="button"
+              onClick={onHome}
+            >
+              Home
+            </button>
+            <button
+              className="btn btn-primary"
+              type="button"
+              onClick={() => setStep("slots")}
+            >
+              Choose a time
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </div>
       )}
 
@@ -371,7 +386,7 @@ function TicketView({ ticket, onRebook }) {
         Come a minute early. The lights will already be low.
       </p>
       <button className="text-btn" type="button" onClick={onRebook}>
-        Choose a different hour
+        Book again — back to home
       </button>
     </section>
   );
