@@ -10,7 +10,7 @@ export const SLOTS = [
     id: "evening",
     time: "18:00",
     label: "6:00 p.m.",
-    name: "Evening",
+    name: "Six o'clock",
     blurb: "When the day turns to gold",
   },
 ];

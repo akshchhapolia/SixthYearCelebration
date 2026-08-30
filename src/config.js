@@ -1,7 +1,7 @@
 /** Change the Meet link before you send this to her. */
 export const EVENT = {
   title: "Song & Verse",
-  subtitle: "A private evening of poetry and song",
+  subtitle: "A private hour of poetry and song",
   date: "2026-09-01",
   dateLabel: "Tuesday, 1 September 2026",
   shortDate: "1 September 2026",

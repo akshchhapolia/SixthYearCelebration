@@ -5,7 +5,7 @@ import { clearTicket, loadTicket, saveTicket } from "./lib/storage";
 import { downloadIcs, googleCalendarUrl, ticketCode } from "./lib/calendar";
 
 const STEPS = [
-  { id: "details", label: "Evening" },
+  { id: "details", label: "Event" },
   { id: "slots", label: "Time" },
 ];
 
@@ -87,7 +87,7 @@ export default function App() {
       <footer className="footer">
         <span>{EVENT.shortDate}</span>
         <span className="dot">·</span>
-        <span>One seat · one evening</span>
+        <span>One seat · one hour</span>
       </footer>
     </div>
   );
@@ -113,7 +113,7 @@ function Home({ onBook }) {
     <section className="home fade-in">
       <p className="kicker">Invitation · admit one</p>
       <h1>
-        An evening of
+        An hour of
         <em> song and verse</em>
       </h1>
       <p className="lead">
@@ -134,6 +134,8 @@ function Home({ onBook }) {
           <li>
             <span>When</span>
             {EVENT.dateLabel}
+            <br />
+            {SLOTS.map((item) => item.label).join(" or ")}
           </li>
           <li>
             <span>Where</span>
@@ -153,7 +155,7 @@ function Home({ onBook }) {
           <div>
             <span>Act I</span>
             <strong>Verse</strong>
-            <p>Poems read slowly, the way evening settles on a page.</p>
+            <p>Poems read slowly, the way light settles on a page.</p>
           </div>
           <div>
             <span>Act II</span>
@@ -200,7 +202,7 @@ function Booking({
 
       {step === "details" && (
         <div className="panel">
-          <h2>The evening</h2>
+          <h2>The event</h2>
           <p className="lead">
             Two acts. One seat. You pick the hour that feels like yours —
             the way you would choose a showing at a small theatre.
@@ -296,7 +298,7 @@ function TicketView({ ticket, onRebook }) {
       <h2>Your ticket</h2>
       <p className="lead">Your hour is reserved. The salon door is on this pass.</p>
 
-      <article className="ticket" aria-label="Evening ticket">
+      <article className="ticket" aria-label="Event ticket">
         <div className="ticket-art">
           <img
             src={`${import.meta.env.BASE_URL}music-night.png`}
@@ -378,7 +380,7 @@ function TicketView({ ticket, onRebook }) {
       </div>
 
       <p className="whisper">
-        Come a minute early. The lights will already be low.
+        Come a minute early. The room will already be waiting.
       </p>
       <button className="text-btn" type="button" onClick={onRebook}>
         Book again — back to home
