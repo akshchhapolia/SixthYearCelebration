@@ -3,7 +3,7 @@ export const EVENT = {
   title: "Song & Verse",
   subtitle: "A private evening of poetry and song",
   date: "2026-09-01",
-  dateLabel: "Monday, 1 September 2026",
+  dateLabel: "Tuesday, 1 September 2026",
   shortDate: "1 September 2026",
   venue: "Google Meet",
   venueNote: "A private salon — the link is on your ticket",

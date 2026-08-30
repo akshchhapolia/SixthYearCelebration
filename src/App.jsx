@@ -124,15 +124,10 @@ function Home({ onBook }) {
 
       <article className="event-card">
         <div className="poster">
-          <span className="date-badge">
-            <small>Sep</small>
-            <strong>01</strong>
-          </span>
-          <div className="poster-copy">
-            <p>Monday evening</p>
-            <h2>{EVENT.title}</h2>
-            <p>{EVENT.subtitle}</p>
-          </div>
+          <img
+            src={`${import.meta.env.BASE_URL}music-night.png`}
+            alt="Music night with Sukiiiiiiii — 1 September, Google Meet"
+          />
         </div>
 
         <ul className="facts">
