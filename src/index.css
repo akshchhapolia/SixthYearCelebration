@@ -503,18 +503,27 @@ textarea {
 }
 
 .ticket {
-  display: grid;
-  grid-template-columns: 1fr 140px;
   margin: 8px 0 28px;
   background: var(--card);
   border-radius: 22px;
   box-shadow: var(--shadow);
   overflow: hidden;
+}
+
+.ticket-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ticket-body {
+  display: grid;
+  grid-template-columns: 1fr 140px;
   position: relative;
 }
 
-.ticket::before,
-.ticket::after {
+.ticket-body::before,
+.ticket-body::after {
   content: "";
   position: absolute;
   left: calc(100% - 140px);
@@ -525,11 +534,11 @@ textarea {
   transform: translateX(-50%);
 }
 
-.ticket::before {
+.ticket-body::before {
   top: -11px;
 }
 
-.ticket::after {
+.ticket-body::after {
   bottom: -11px;
 }
 
@@ -715,13 +724,13 @@ textarea {
   .facts,
   .acts,
   .slot-grid,
-  .ticket,
+  .ticket-body,
   .ticket-main dl {
     grid-template-columns: 1fr;
   }
 
-  .ticket::before,
-  .ticket::after {
+  .ticket-body::before,
+  .ticket-body::after {
     display: none;
   }
 

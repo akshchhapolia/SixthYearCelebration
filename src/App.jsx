@@ -287,48 +287,56 @@ function TicketView({ ticket, onRebook }) {
       <p className="lead">Your hour is reserved. The salon door is on this pass.</p>
 
       <article className="ticket" aria-label="Evening ticket">
-        <div className="ticket-main">
-          <p className="ticket-kicker">Private salon · Song &amp; Verse</p>
-          <h3>{ticket.name}</h3>
-          <p className="ticket-act">
-            {ticket.slot.name} · {ticket.slot.blurb}
-          </p>
-          <dl>
-            <div>
-              <dt>Date</dt>
-              <dd>{EVENT.shortDate}</dd>
-            </div>
-            <div>
-              <dt>Hour</dt>
-              <dd>
-                {ticket.slot.label || ticket.slot.time} {EVENT.timezoneLabel}
-              </dd>
-            </div>
-            <div>
-              <dt>House</dt>
-              <dd>{EVENT.venue}</dd>
-            </div>
-          </dl>
-          {ticket.note && (
-            <p className="ticket-note">
-              “{ticket.note}”
-              <small>for you, always</small>
-            </p>
-          )}
-          <a className="ticket-meet" href={salon} target="_blank" rel="noreferrer">
-            <span>Google Meet</span>
-            <strong>{meetCode(salon)}</strong>
-            <small>{salon.replace(/^https?:\/\//, "")}</small>
-          </a>
+        <div className="ticket-art">
+          <img
+            src={`${import.meta.env.BASE_URL}music-night.png`}
+            alt="Music night with Sukiiiiiiii — 1 September, Google Meet"
+          />
         </div>
-        <div className="ticket-stub">
-          <p>Admit one</p>
-          <div className="code-mark" aria-hidden="true">
-            {Array.from({ length: 9 }, (_, i) => (
-              <span key={i} />
-            ))}
+        <div className="ticket-body">
+          <div className="ticket-main">
+            <p className="ticket-kicker">Private salon · Song &amp; Verse</p>
+            <h3>{ticket.name}</h3>
+            <p className="ticket-act">
+              {ticket.slot.name} · {ticket.slot.blurb}
+            </p>
+            <dl>
+              <div>
+                <dt>Date</dt>
+                <dd>{EVENT.shortDate}</dd>
+              </div>
+              <div>
+                <dt>Hour</dt>
+                <dd>
+                  {ticket.slot.label || ticket.slot.time} {EVENT.timezoneLabel}
+                </dd>
+              </div>
+              <div>
+                <dt>House</dt>
+                <dd>{EVENT.venue}</dd>
+              </div>
+            </dl>
+            {ticket.note && (
+              <p className="ticket-note">
+                “{ticket.note}”
+                <small>for you, always</small>
+              </p>
+            )}
+            <a className="ticket-meet" href={salon} target="_blank" rel="noreferrer">
+              <span>Google Meet</span>
+              <strong>{meetCode(salon)}</strong>
+              <small>{salon.replace(/^https?:\/\//, "")}</small>
+            </a>
           </div>
-          <strong>{ticket.code}</strong>
+          <div className="ticket-stub">
+            <p>Admit one</p>
+            <div className="code-mark" aria-hidden="true">
+              {Array.from({ length: 9 }, (_, i) => (
+                <span key={i} />
+              ))}
+            </div>
+            <strong>{ticket.code}</strong>
+          </div>
         </div>
       </article>
 
